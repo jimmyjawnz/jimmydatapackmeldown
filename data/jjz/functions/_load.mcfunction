@@ -83,6 +83,9 @@ scoreboard players set base heaterOverheatT 60
 scoreboard objectives add steamstepActiveT dummy
 scoreboard players set base steamstepActiveT 35
 
+scoreboard objectives add steamsmokeTimerT dummy
+scoreboard players set base steamsmokeTimerT 37
+
 #Steam grenade visual bug
 scoreboard objectives add visfix dummy
 scoreboard players set .-1 visfix -1
