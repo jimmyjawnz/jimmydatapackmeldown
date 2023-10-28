@@ -138,6 +138,7 @@ execute as @a[scores={playerHeaterState=1}] at @e[tag=heater] unless score @s pl
 execute as @a[scores={playerHeaterState=1}] unless entity @e[tag=heater] run scoreboard players set @s playerHeaterState 2
 
 # Starts cooldown if heater was in the broken state
+execute as @a[scores={playerHeaterState=2}] at @e[tag=heater] if score @s playerID = @e[tag=heater,sort=nearest,limit=1] playerID run scoreboard players set @s playerHeaterState 1
 execute as @a[scores={playerHeaterState=2}] run function jjz:player/timer/heater/broken
 
 # Reset state if the player has a heater

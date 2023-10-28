@@ -94,7 +94,7 @@ team add 2 "Team 2"
 team add 3 "Team 3"
 team add 4 "Team 4"
 
-say RELOADED 0.1
+say RELOADED 0.1.1
 
 ##############################################
 
