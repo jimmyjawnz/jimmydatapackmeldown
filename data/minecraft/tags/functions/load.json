@@ -1,5 +1,8 @@
 {
     "values": [
     "jjz:_load"
+    ],
+    "values":[
+    "bluefox:load"
     ]
-    }
+}
