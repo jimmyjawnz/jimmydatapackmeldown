@@ -71,7 +71,8 @@ execute as @a[tag=steamstep] if score @s steamstepActiveT matches 1.. at @s run 
 # Tests if grenade is on the ground
 execute as @e[type=snowball,nbt={Item:{tag:{CustomModelData:1}}}] at @s run function jjz:ability/steambomb/tick
 execute as @e[type=marker,tag=smokeGrenade] at @s run particle crit ~ ~ ~ 0 0 0 0 1
-execute as @e[type=marker,tag=smokeGrenade] at @s run function jjz:ability/steambomb/tickmarker
+execute as @e[type=marker,tag=smokeGrenade] at @s if score @s steamgrenadeT matches 1.. run scoreboard players remove @s steamgrenadeT 1
+execute as @e[type=marker,tag=smokeGrenade] at @s if score @s steamgrenadeT matches 0 run function jjz:ability/steambomb/tickmarker
 # #
 
 ## Player/Ability Inventory Manager ##
