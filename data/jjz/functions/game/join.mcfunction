@@ -3,11 +3,11 @@
 tag @s add inGame
 
 ## Score Resets ##
-scoreboard players reset @s placedHeater
-scoreboard players reset @s abilityTimer
-scoreboard players reset @s abilityTimerT
-scoreboard players reset @s frozenPercent
-scoreboard players reset @s frozenPercentT
+scoreboard players set @s placedHeater 0
+scoreboard players set @s abilityTimer 0
+scoreboard players set @s abilityTimerT 0
+scoreboard players set @s frozenPercent 0
+scoreboard players set @s frozenPercentT 0
 scoreboard players set @s playerAbilityState 0
 scoreboard players set @s playerHeaterState 0
 # #
