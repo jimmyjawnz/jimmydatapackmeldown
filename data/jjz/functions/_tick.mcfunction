@@ -69,7 +69,7 @@ execute as @a[tag=steamstep] if score @s steamstepActiveT matches 1.. at @s run 
 
 ## SteamGrenade Manager ##
 # Tests if grenade is on the ground
-execute as @e[type=snowball,nbt={Item:{tag:{CustomModelData:1}}},tag=!smokeGrenade] at @s run function jjz:ability/steambomb/found
+execute as @e[type=snowball,nbt={Item:{tag:{CustomModelData:1,abilityItem:1}}},tag=!smokeGrenade] at @s run function jjz:ability/steambomb/found
 execute as @e[type=area_effect_cloud,tag=smokeGrenade] at @s run particle crit ~ ~ ~ 0 0 0 0 1
 execute as @e[type=area_effect_cloud,tag=smokeGrenade] at @s unless predicate jjz:is_riding_snowball at @s run function jjz:ability/steambomb/landed
 execute as @e[type=snowball,tag=smokeGrenade] run function jjz:vis_fix
