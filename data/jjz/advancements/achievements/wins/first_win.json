@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:iron_ingot",
+      "nbt": "{CustomModelData:2}"
+    },
+    "title": "First Win",
+    "description": "Win your First Game!",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "jjz:achievements/game_based",
+  "criteria": {
+    "grantable": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "grantable"
+    ]
+  ],
+  "rewards": {}
+}

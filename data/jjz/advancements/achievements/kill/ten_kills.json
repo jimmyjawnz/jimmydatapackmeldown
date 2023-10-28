@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:skeleton_skull",
+      "nbt": "{CustomModelData:10}"
+    },
+    "title": "Freeze Beginner",
+    "description": "Freeze 10 enemies",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "jjz:achievements/kill/first_kill",
+  "criteria": {
+    "grantable": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "grantable"
+    ]
+  ],
+  "rewards": {}
+}

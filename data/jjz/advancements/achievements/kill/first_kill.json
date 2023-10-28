@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:skeleton_skull",
+      "nbt": "{CustomModelData:2}"
+    },
+    "title": "First Freeze",
+    "description": "Freeze someone with your bow for the first time!",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "jjz:achievements/kill_based",
+  "criteria": {
+    "hitPlayer": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "player": {
+          "equipment": {
+            "mainhand": {
+              "nbt": "{frozenBow:1}"
+            }
+          }
+        },
+        "entity": {
+          "type": "minecraft:player"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "hitPlayer"
+    ]
+  ],
+  "rewards": {}
+}

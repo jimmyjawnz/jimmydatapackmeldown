@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:carrot_on_a_stick",
+      "nbt": "{CustomModelData:2}"
+    },
+    "title": "Sneaky Cover",
+    "description": "Win your First Game as an Assassin",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "jjz:achievements/wins/first_win",
+  "criteria": {
+    "grantable": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "grantable"
+    ]
+  ],
+  "rewards": {}
+}

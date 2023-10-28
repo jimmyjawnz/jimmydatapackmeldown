@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:blue_ice",
+      "nbt": "{CustomModelData:1}"
+    },
+    "title": "Frozen",
+    "description": "Get Frozen by someone",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "jjz:achievements/kill_based",
+  "criteria": {
+    "hitPlayer": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "damage": {
+          "source_entity": {
+            "equipment": {
+              "mainhand": {
+                "nbt": "{frozenBow:1}"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "hitPlayer"
+    ]
+  ],
+  "rewards": {}
+}
