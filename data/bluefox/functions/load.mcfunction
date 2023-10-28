@@ -12,7 +12,5 @@ gamerule mobGriefing false
 gamerule spawnRadius 0
 gamerule spectatorsGenerateChunks true
 
-scoreboard objectives add gameroom dummy "Gameroom"
-scoreboard players enable @a gameroom 
 
 say Gameroom 
