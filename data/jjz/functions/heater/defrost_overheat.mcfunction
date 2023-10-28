@@ -14,7 +14,6 @@ particle flame ~ ~1 ~ 0.7 0.7 0.7 0.05 100 force
 particle poof ~ ~1 ~ 0 0.5 0 0.05 10 force
 particle ash ~ ~1 ~ 0.2 0.2 0.2 0.05 50 force
 
-#execute if entity @s[tag=engineer] run function jjz:player/timer/heater/broken
 
 say DEFROST HEATER
 

@@ -19,8 +19,8 @@
 
 ## Item Manager ##
 # Makes specifided Items without the {droppable:1b} tag be undroppable
-execute as @e[type=item,nbt=!{Item:{tag:{droppable:1b}}}] at @s on origin run function jjz:player/nodrop
-execute as @e[type=item,nbt=!{Item:{tag:{droppable:1b}}}] run data modify entity @s PickupDelay set value 0s
+#execute as @e[type=item,nbt=!{Item:{tag:{droppable:1b}}}] at @s on origin run function jjz:player/nodrop
+#execute as @e[type=item,nbt=!{Item:{tag:{droppable:1b}}}] run data modify entity @s PickupDelay set value 0s
 
 # Keeps an arrow in the player's inventory so the bow functions properly
 execute as @a[tag=inGame,nbt=!{Inventory:[{id:"minecraft:arrow"}]}] run item replace entity @s inventory.26 with arrow
@@ -65,6 +65,14 @@ execute as @a[tag=inGame,nbt={SelectedItem:{tag:{abilityItem:1}}}] if score @s r
 ## Steamstep Manager ##
 # Runs timer for Steamstep
 execute as @a[tag=steamstep] if score @s steamstepActiveT matches 1.. at @s run function jjz:ability/steamstep/tick
+# #
+
+## SteamGrenade Manager ##
+# Tests if grenade is on the ground
+execute as @e[type=snowball,nbt={Item:{tag:{CustomModelData:1}}}] at @s run function jjz:ability/steambomb/tick
+execute as @e[type=marker,tag=smokeGrenade] at @s run particle crit ~ ~ ~ 0 0 0 0 1
+execute as @e[type=marker,tag=smokeGrenade] at @s if entity @e[type=snowball,nbt={Item:{tag:{CustomModelData:1}}},limit=1,sort=nearest,dx=0] run kill @s
+execute as @e[type=marker,tag=smokeGrenade] at @s unless entity @e[type=snowball,nbt={Item:{tag:{CustomModelData:1}}},limit=1,sort=nearest,dx=0] run particle campfire_cosy_smoke ~ ~ ~ 1.25 1.25 1.25 0.1 10 force
 # #
 
 ## Player/Ability Inventory Manager ##
