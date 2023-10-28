@@ -75,6 +75,9 @@ execute as @e[type=marker,tag=smokeGrenade] at @s unless predicate jjz:is_riding
 execute as @e[type=snowball,tag=smokeGrenade] run function jjz:vis_fix
 scoreboard players operation .global visfix *= .-1 visfix
 
+execute as @e[type=item,nbt={OnGround:1b,Item:{id:"minecraft:snowball",tag:{CustomModelData:1,abilityItem:1}}}] at @s run function jjz:ability/steambomb/dropped
+
+
 execute as @e[type=marker,tag=physical_smoke_grenade] at @s run function jjz:ability/steambomb/tick
 # #
 
