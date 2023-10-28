@@ -16,6 +16,7 @@
 #effect give @s minecraft:jump_boost 999 146 true
 #effect give @s minecraft:slowness 999 225 true
 say FROZEN
+advancement revoke @a everything
 kill @s
 
 ##############################################
