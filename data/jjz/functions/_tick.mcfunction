@@ -74,6 +74,8 @@ execute as @e[type=marker,tag=smokeGrenade] at @s run particle crit ~ ~ ~ 0 0 0 
 execute as @e[type=marker,tag=smokeGrenade] at @s unless predicate jjz:is_riding_snowball at @s run function jjz:ability/steambomb/landed
 execute as @e[type=snowball,tag=smokeGrenade] run function jjz:vis_fix
 scoreboard players operation .global visfix *= .-1 visfix
+
+execute as @e[type=marker,tag=physical_smoke_grenade] at @s run function jjz:ability/steambomb/tick
 # #
 
 ## Player/Ability Inventory Manager ##

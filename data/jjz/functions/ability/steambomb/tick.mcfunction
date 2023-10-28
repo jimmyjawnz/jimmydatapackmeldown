@@ -1,8 +1,11 @@
 ############# DEFROST | EXECUTE ##############
 
-summon marker ~ ~ ~ {Tags:["smokeGrenade"]}
-execute as @e[type=marker,tag=smokeGrenade] unless score @s steamgrenadeT matches -2147483648..2147483647 run scoreboard players operation @s steamgrenadeT = base steamgrenadeT
-particle smoke ~ ~ ~ 0 0 0 0 1 force
+particle block gray_wool ~ ~ ~ 1.25 1.25 1.25 0 20 force
+particle block light_gray_wool ~ ~ ~ 1.55 1.55 1.55 0 20 force
+
+particle campfire_cosy_smoke ~ ~ ~ 1.75 1.55 1.75 0.05 20 force
+
+#particle dust_color_transition  ~ ~ ~ 1.75 1.55 1.75 0.05 20 force
 
 ##############################################
 
