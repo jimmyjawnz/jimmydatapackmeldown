@@ -83,8 +83,10 @@ scoreboard players set base heaterOverheatT 60
 scoreboard objectives add steamstepActiveT dummy
 scoreboard players set base steamstepActiveT 35
 
-scoreboard objectives add steamgrenadeT dummy
-scoreboard players set base steamgrenadeT 2
+#Steam grenade visual bug
+scoreboard objectives add visfix dummy
+scoreboard players set .-1 visfix -1
+scoreboard players set .global visfix 1
 
 
 scoreboard objectives add totalFreezeKills dummy 
