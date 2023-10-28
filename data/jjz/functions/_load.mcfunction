@@ -84,7 +84,7 @@ scoreboard objectives add steamstepActiveT dummy
 scoreboard players set base steamstepActiveT 35
 
 scoreboard objectives add steamsmokeTimerT dummy
-scoreboard players set base steamsmokeTimerT 37
+scoreboard players set base steamsmokeTimerT 740
 
 #Steam grenade visual bug
 scoreboard objectives add visfix dummy
