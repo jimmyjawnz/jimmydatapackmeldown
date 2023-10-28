@@ -9,7 +9,7 @@ execute on origin if entity @s[team=4] run tag @e[type=item,tag=init,sort=neares
 
 tag @s remove init
 
-execute positioned ~ ~-0.5 ~ run function jjz:ability/steambomb/landed
+execute positioned ~ ~ ~ run function jjz:ability/steambomb/landed
 
 ##############################################
 
