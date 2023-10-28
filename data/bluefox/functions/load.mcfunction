@@ -12,7 +12,7 @@ gamerule mobGriefing false
 gamerule spawnRadius 0
 gamerule spectatorsGenerateChunks true
 
-scoreboard objectives add gameroom dummy
-scoreboard players enable @a gameroom
+scoreboard objectives add gameroom dummy "Gameroom"
+scoreboard players enable @a gameroom 
 
-say bluefox pack reloaded 
+say Gameroom 
