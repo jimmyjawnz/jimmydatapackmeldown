@@ -7,6 +7,9 @@ particle campfire_cosy_smoke ~ ~ ~ 1.75 1.25 1.75 0.01 10 force
 
 #particle dust_color_transition  ~ ~ ~ 1.75 1.55 1.75 0.05 20 force
 
+scoreboard players remove @s steamsmokeTimerT 1
+execute if score @s steamsmokeTimerT matches 0 run kill @s
+
 ##############################################
 
 ## jimmyjawnz
