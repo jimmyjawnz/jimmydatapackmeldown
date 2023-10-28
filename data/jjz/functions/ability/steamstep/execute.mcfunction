@@ -1,6 +1,6 @@
 ############## OVERHEAT | EXECUTE ##############
 
-say STEAMSTEP EXECUTE
+#say STEAMSTEP EXECUTE
 
 scoreboard players reset @s abilityID
 tag @s add steamstep

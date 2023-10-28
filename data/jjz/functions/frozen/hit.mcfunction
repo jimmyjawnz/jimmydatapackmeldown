@@ -1,7 +1,7 @@
 ##################### HIT ####################
 
 advancement revoke @s only jjz:hitbow
-say HIT
+#say HIT
 
 
 ##############################################
