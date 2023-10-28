@@ -8,8 +8,8 @@ scoreboard players reset @s abilityTimer
 scoreboard players reset @s abilityTimerT
 scoreboard players reset @s frozenPercent
 scoreboard players reset @s frozenPercentT
-scoreboard players reset @s playerAbilityState
-scoreboard players reset @s playerHeaterState
+scoreboard players set @s playerAbilityState 0
+scoreboard players set @s playerHeaterState 0
 # #
 
 ## Inventory Management ##
