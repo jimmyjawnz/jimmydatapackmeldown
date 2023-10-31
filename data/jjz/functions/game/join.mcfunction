@@ -18,7 +18,7 @@ function jjz:player/give/items
 # #
 
 ## Grant Effects ##
-effect give @s minecraft:resistance infinite 255 true
+effect give @s minecraft:resistance infinite 19 true
 effect give @s minecraft:saturation infinite 255 true
 # #
 
