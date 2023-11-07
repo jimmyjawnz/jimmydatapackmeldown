@@ -2,8 +2,8 @@
 
 execute if block ~ ~ ~ air run setblock ~ ~ ~ soul_lantern
 
-execute if entity @s[nbt={Facing:0b}] run summon interaction ~ ~-0.04 ~ {Tags:["heater"],width:0.8f,height:0.8f}
-execute unless entity @s[nbt={Facing:0b}] run summon interaction ~ ~ ~ {Tags:["heater"],width:0.8f,height:0.8f}
+execute if entity @s[nbt={Facing:0b}] run summon interaction ~ ~-0.04 ~ {Tags:["heater"],width:0.9f,height:0.9f}
+execute unless entity @s[nbt={Facing:0b}] run summon interaction ~ ~ ~ {Tags:["heater"],width:0.9f,height:0.9f}
 
 execute if entity @s[nbt={Facing:0b}] run summon item_display ~ ~0.96 ~ {brightness:{sky:15,block:10},Tags:["heaterModel"],view_range:0.5f,item_display:"head",item:{id:"minecraft:furnace",Count:1b,tag:{CustomModelData:10}}}
 execute unless entity @s[nbt={Facing:0b}] run summon item_display ~ ~1 ~ {brightness:{sky:15,block:10},Tags:["heaterModel"],view_range:0.5f,item_display:"head",item:{id:"minecraft:furnace",Count:1b,tag:{CustomModelData:10}}}

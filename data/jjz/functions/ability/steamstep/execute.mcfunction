@@ -16,9 +16,7 @@ playsound item.flintandsteel.use player @a ~ ~ ~ 10 0.7
 
 scoreboard players operation @s steamstepActiveT = base steamstepActiveT
 
-clear @s
-tag @s add frozen
-function jjz:player/give/smoke
+function jjz:player/give/steamstepglass
 
 
 

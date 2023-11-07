@@ -19,8 +19,8 @@
 
 ## Item Manager ##
 # Makes specifided Items without the {droppable:1b} tag be undroppable
-#execute as @e[type=item,nbt=!{Item:{tag:{droppable:1b}}}] at @s on origin run function jjz:player/nodrop
-#execute as @e[type=item,nbt=!{Item:{tag:{droppable:1b}}}] run data modify entity @s PickupDelay set value 0s
+execute as @e[type=item,nbt=!{Item:{tag:{droppable:1b}}}] at @s on origin run function jjz:player/nodrop
+execute as @e[type=item,nbt=!{Item:{tag:{droppable:1b}}}] run data modify entity @s PickupDelay set value 0s
 
 # Keeps an arrow in the player's inventory so the bow functions properly
 execute as @a[tag=inGame,nbt=!{Inventory:[{id:"minecraft:arrow"}]}] run item replace entity @s inventory.26 with arrow
@@ -34,14 +34,6 @@ execute as @a[team=1] run scoreboard players operation @s teamID = .red teamID
 execute as @a[team=2] run scoreboard players operation @s teamID = .blue teamID
 execute as @a[team=3] run scoreboard players operation @s teamID = .green teamID
 execute as @a[team=4] run scoreboard players operation @s teamID = .yellow teamID
-# #
-
-## Arrow Manager ##
-# Entity Data
-execute as @e[type=arrow,tag=!T] run data merge entity @s {Tags:["T"],crit:0b,SoundEvent:"block.chain.place",Potion:"minecraft:luck"}
-
-# Kill if in ground
-execute as @e[type=arrow,nbt={inGround:true}] run kill @s
 # #
 
 ## Cooldown Manager ##
@@ -66,6 +58,10 @@ execute as @a[tag=inGame,nbt={SelectedItem:{tag:{abilityItem:1}}}] if score @s r
 # Runs timer for Steamstep
 execute as @a[tag=steamstep] if score @s steamstepActiveT matches 1.. at @s run function jjz:ability/steamstep/tick
 # #
+
+#> Bounce Manager type=item,nbt={Item:{tag:{droppable:1b}}}
+execute as @e[type=item,nbt={Item:{id:"minecraft:snowball",tag:{CustomModelData:1,abilityItem:1}}}] at @s run function jjz:ability/physics
+
 
 ## SteamGrenade Manager ##
 # Tests if grenade is on the ground
@@ -97,16 +93,27 @@ execute as @a[tag=!frozen,nbt={Inventory:[{tag:{abilityItem:1}}]}] unless score 
 
 ## Interaction Manager ##
 # Heater Interact
-execute as @e[type=minecraft:interaction,tag=heater] at @s[tag=!overheat] on target if entity @s[nbt=!{SelectedItem:{tag:{abilityItem:1}}},gamemode=!creative] run function jjz:heater/pickup/execute
+execute as @e[type=minecraft:interaction,tag=heater] at @s[tag=!overheat,tag=!siphon] on target if entity @s[nbt=!{SelectedItem:{tag:{abilityItem:1}}},gamemode=!creative] run function jjz:heater/pickup/execute
 execute as @e[type=minecraft:interaction,tag=heater] at @s[tag=!overheat] on target if entity @s[nbt={SelectedItem:{id:"minecraft:blaze_rod"}},scores={playerAbilityState=0..2}] run function jjz:ability/overheat/execute
+execute as @e[type=minecraft:interaction,tag=heater] at @s[tag=!siphon] on target if entity @s[nbt={SelectedItem:{id:"minecraft:gold_ingot"}},scores={playerAbilityState=0..2}] run function jjz:ability/siphon/execute
 # Heater Attack
 execute as @e[type=minecraft:interaction,tag=heater] at @s on attacker unless score @s teamID = @e[type=minecraft:interaction,tag=heater,limit=1,sort=nearest] teamID as @e[type=minecraft:interaction,tag=heater,sort=nearest,limit=1] run function jjz:heater/destroy
 # Reset Interaction/Attack Data
 execute as @e[type=minecraft:interaction] run data remove entity @s interaction
 execute as @e[type=minecraft:interaction] run data remove entity @s attack
 
+execute as @e[type=minecraft:interaction,tag=heater] at @s run function jjz:heater/shotbyarrow
+
 # Right click detection for ability functionality
 execute as @a if score @s rightClick matches 1.. run function jjz:rightclick/base
+# #
+
+## Arrow Manager ##
+# Entity Data
+execute as @e[type=arrow,tag=!T] run data merge entity @s {Tags:["T"],crit:0b,SoundEvent:"block.chain.place",Potion:"minecraft:luck"}
+
+# Kill if in ground
+execute as @e[type=arrow,nbt={inGround:true}] run kill @s
 # #
 
 ## Heater Manager ##
@@ -144,8 +151,8 @@ execute as @e[tag=overheatText] at @s run function jjz:ability/overheat/text
 
 ## Player/Heater Inventory Manager ##
 # Tests if a player has placed their heater
-execute as @a[tag=!frozen,nbt=!{Inventory:[{id:"minecraft:glow_item_frame"}]}] at @s unless entity @e[type=item,nbt=!{Item:{tag:{droppable:1b}}},limit=1,sort=nearest,distance=..1] if entity @s[tag=inGame] if score @s playerHeaterState matches 0 run item replace entity @s hotbar.1 with air
-execute as @a[tag=!frozen,nbt=!{Inventory:[{id:"minecraft:glow_item_frame"}]}] at @s unless entity @e[type=item,nbt=!{Item:{tag:{droppable:1b}}},limit=1,sort=nearest,distance=..1] if entity @s[tag=inGame] if score @s playerHeaterState matches 0 run scoreboard players set @s playerHeaterState 1
+execute as @a[tag=!frozen,nbt=!{Inventory:[{id:"minecraft:glow_item_frame"}]}] at @s[tag=!steamstep] unless entity @e[type=item,nbt=!{Item:{tag:{droppable:1b}}},limit=1,sort=nearest,distance=..1] if entity @s[tag=inGame] if score @s playerHeaterState matches 0 run item replace entity @s hotbar.1 with air
+execute as @a[tag=!frozen,nbt=!{Inventory:[{id:"minecraft:glow_item_frame"}]}] at @s[tag=!steamstep] unless entity @e[type=item,nbt=!{Item:{tag:{droppable:1b}}},limit=1,sort=nearest,distance=..1] if entity @s[tag=inGame] if score @s playerHeaterState matches 0 run scoreboard players set @s playerHeaterState 1
 
 # Tests if a player's placed heater has been broken
 execute as @a[scores={playerHeaterState=1}] at @e[tag=heater] unless score @s playerID = @e[tag=heater,sort=nearest,limit=1] playerID run scoreboard players set @s playerHeaterState 2
@@ -156,9 +163,8 @@ execute as @a[scores={playerHeaterState=2}] at @e[tag=heater] if score @s player
 execute as @a[scores={playerHeaterState=2}] run function jjz:player/timer/heater/broken
 
 # Reset state if the player has a heater
-execute as @a[nbt={Inventory:[{id:"minecraft:glow_item_frame"}]}] run scoreboard players set @s playerHeaterState 0
+execute as @a[nbt={Inventory:[{id:"minecraft:glow_item_frame"}]},tag=!steamstep] run scoreboard players set @s playerHeaterState 0
 # #
-
 
 
 ## Score Resets ##

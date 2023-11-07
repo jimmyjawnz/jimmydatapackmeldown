@@ -22,7 +22,7 @@ scoreboard objectives add rightClick minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add rightClickHorn minecraft.used:minecraft.goat_horn
 scoreboard objectives add rightClickObj minecraft.custom:minecraft.talked_to_villager
 scoreboard objectives add hornTime dummy
-scoreboard objectives add abilityUses dummy
+scoreboard objectives add class dummy
 
 scoreboard objectives add playerHeaterState dummy
 # if 0 -> heater is in inventory #
@@ -90,6 +90,13 @@ scoreboard players set base steamsmokeTimerT 420
 scoreboard objectives add visfix dummy
 scoreboard players set .-1 visfix -1
 scoreboard players set .global visfix 1
+
+# bounce physics by 4P5
+scoreboard objectives add entity.bounce.x dummy
+scoreboard objectives add entity.bounce.y dummy
+scoreboard objectives add entity.bounce.z dummy
+scoreboard objectives add entity.bounce.const dummy
+scoreboard players set -1 entity.bounce.const -13
 
 
 scoreboard objectives add totalFreezeKills dummy 
